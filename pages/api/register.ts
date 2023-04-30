@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import prismadb from "@/lib/prismadb";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === "POST") {            // Only allow POST calls to this route
+    if (req.method !== "POST") {            // Only allow POST calls to this route
         return res.status(405).end();
     }
 
